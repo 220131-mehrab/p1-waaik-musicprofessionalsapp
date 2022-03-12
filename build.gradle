@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClassName = 'com.revature.waaik.musicprofessionalsapp.App'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class' : mainClassName
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.0.17'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2'
+    implementation 'com.h2database:h2:2.1.210'
+}
+
+test {
+    useJUnitPlatform()
+}
