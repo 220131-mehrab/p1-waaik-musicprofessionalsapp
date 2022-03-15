@@ -27,16 +27,18 @@ function postPros() {
     fetch("/pros", {
         method: "POST",
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Accept': '/application/json',
+            'Content-Type': '/application/json'
         },
-        body: JSON.stringify(pro)
+        body: JSON.stringify(pros)
     }).then((result) => {
         if (result.status != 200) {
             throw new Error("Bad Server Response");
         }
-        console.log(result.text());
-    }).catch((error) => { console.log(error); })
+       console.log(result.text());
+
+    }).catch((error) => { console.log(error); });
+        //console.log("Im here");
     fetch('/pros').then(resp => resp.json()).then(pros => {
             document.querySelector('#pros').innerHTML = listPros(pros);
         }

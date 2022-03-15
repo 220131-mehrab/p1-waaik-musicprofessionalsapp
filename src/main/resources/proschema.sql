@@ -16,8 +16,10 @@ CREATE TABLE "user"(
     "userpick" VARCHAR NOT NULL,
 
     CONSTRAINT "PK_user" PRIMARY KEY ("userid"),
-    CONSTRAINT "FK_userpickid" FOREIGN KEY ("userid") REFERENCES "pros" ("proid") ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT "FK_userpickid" FOREIGN KEY ("userpick") REFERENCES "pros" ("proid") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
+
+
 
 
 INSERT INTO "pros" VALUES (1, 'Scoota Sage', 'Engineer', '555-555-5555', 'SCOOTA_SAGE@GMAIL.COM', 300 );

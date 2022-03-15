@@ -2,15 +2,15 @@ package com.revature.waaik.musicprofessionalsapp;
 
 public class Pros {
 
-    private int prosId;
+    private int proId;
     private String name;
     private String profession;
     private String email;
     private String phoneNumber;
     private int fee;
 
-    public Pros(int prosId, String name, String profession, String email, String phoneNumber, int fee) {
-        this.prosId = prosId;
+    public Pros(int proId, String name, String profession, String email, String phoneNumber, int fee) {
+        this.proId = proId;
         this.name = name;
         this.profession = profession;
         this.email = email;
@@ -22,12 +22,12 @@ public class Pros {
 
    }
 
-    public int getProsId() {
-        return prosId;
+    public int getProId() {
+        return proId;
     }
 
-    public void setProsId(int prosId) {
-        this.prosId = prosId;
+    public void setProId(int proId) {
+        this.proId = proId;
     }
 
     public String getName() {
@@ -69,4 +69,21 @@ public class Pros {
     public void setFee(int fee) {
         this.fee = fee;
     }
+
+
+
+
+    @Override
+    public String toString() {
+        return "Pros{" +
+                "proId=" + proId +
+                ", name='" + name + '\'' +
+                ", profession='" + profession + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", fee=" + fee +
+                '}';
+    }
 }
+
+

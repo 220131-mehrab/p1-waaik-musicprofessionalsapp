@@ -17,38 +17,35 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) throws SQLException {
-        List<Pros> pros = new ArrayList<>();
+        //Creating list array for my Pros object
+       // List<Pros> pros = new ArrayList<>();
+       //Connecting the database to driver
         Connection connection = DriverManager.getConnection("jdbc:h2:mem:dbmain;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:proschema.sql'", "wcp", "wcp");
-        //ResultSet rSet = connection.prepareStatement("select * from pros").executeQuery();
 
-        //while(rSet.next()){
-        // pros.add(rSet.getString("name"));
-
-
+        //Creating proServlet
         HttpServlet proServlet = new HttpServlet() {
+            //Sending database data to the browser
             @Override
             protected void doGet(HttpServletRequest req, HttpServletResponse resp)
                     throws ServletException, IOException {
-
                 List<Pros> pros = new ArrayList<>();
-                ResultSet rSet = null;
+                //ResultSet rSet = null;
                 try {
-                    rSet = connection.prepareStatement("select * from pros").executeQuery();
+                    ResultSet rSet = connection.prepareStatement("select * from pros").executeQuery();
                     while (rSet.next()) {
+                        //get columns in table and puts it into your Pros list
                         pros.add(new Pros(rSet.getInt("proid"), rSet.getString("name"), rSet.getString("profession"), rSet.getString("phonenumber"), rSet.getString("email"), rSet.getInt("fee")));
 
                     }
                 }catch(SQLException e){
                         e.printStackTrace();
                     }
-
-                    //JSON Mapper
-                    ObjectMapper mapper = new ObjectMapper();
-                    String results = mapper.writeValueAsString(pros);
-                    resp.setContentType("application/json");
-                    resp.getWriter().println(results);
+                ObjectMapper mapper = new ObjectMapper();
+                String results = mapper.writeValueAsString(pros); //write pros value as a string that you get from database
+                resp.setContentType("/application/json");
+                resp.getWriter().println(results);
                 }
-
+                //Getting info from the browser and posting it to the database on the browser
                 @Override
                 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
                     ObjectMapper mapper = new ObjectMapper();
@@ -56,12 +53,13 @@ public class App {
 
                     try {
                         PreparedStatement stmt = connection.prepareStatement("insert into pros values (?,?,?,?,?,?)");
-                        stmt.setInt(1, newPros.getProsId());
+                        stmt.setInt(1, newPros.getProId());
                         stmt.setString(2, newPros.getName());
                         stmt.setString(3, newPros.getProfession());
                         stmt.setString(4, newPros.getPhoneNumber());
                         stmt.setString(5, newPros.getEmail());
                         stmt.setInt(6, newPros.getFee());
+                        stmt.executeLargeUpdate();
                     } catch (SQLException e) {
                         System.err.println("Failed to insert:" + e.getMessage());
                         e.printStackTrace();
@@ -72,7 +70,7 @@ public class App {
             };
 
 
-
+        //Creating server
         Tomcat server = new Tomcat();
         server.getConnector();
         server.addContext("", null);
