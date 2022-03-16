@@ -7,13 +7,15 @@ public class User {
     private String userEmail;
     private String userPassword;
     private int userCreditCard;
+    private int userPick;
 
-    public User(int userId, String userName, String userEmail, String userPassword, int userCreditCard) {
+    public User(int userId, String userName, String userEmail, String userPassword, int userCreditCard, int userPick) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userCreditCard = userCreditCard;
+        this.userPick = userPick;
     }
 
     public User(){
@@ -59,4 +61,23 @@ public class User {
     public void setUserCreditCard(int userCreditCard) {
         this.userCreditCard = userCreditCard;
     }
+
+    public int getUserPick(){return userPick;}
+
+    public void setUserPick(int userPick){this.userPick = userPick;}
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userCreditCard=" + userCreditCard + '\'' +
+                ", userPick=" + userPick +
+                '}';
+    }
 }
+
+

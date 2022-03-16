@@ -16,11 +16,11 @@ let listPro = function(pro) {
 
 function postPros() {
     let pro = {
-        "proid": document.getElementById("proid").value,
+        "proId": document.getElementById("proId").value,
         "name": document.getElementById("name").value,
         "profession": document.getElementById("profession").value,
         "email": document.getElementById("email").value,
-        "phone number": document.getElementById("phonenumber").value,
+        "phoneNumber": document.getElementById("phoneNumber").value,
         "fee": document.getElementById("fee").value
     }
     console.log(pro);
@@ -30,7 +30,7 @@ function postPros() {
             'Accept': '/application/json',
             'Content-Type': '/application/json'
         },
-        body: JSON.stringify(pros)
+        body: JSON.stringify(pro)
     }).then((result) => {
         if (result.status != 200) {
             throw new Error("Bad Server Response");

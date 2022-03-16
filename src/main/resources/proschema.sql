@@ -1,26 +1,30 @@
 CREATE TABLE "pros"(
-    "proid" INT PRIMARY KEY NOT NULL,
+    "proId" INT PRIMARY KEY NOT NULL,
     "name" VARCHAR,
     "profession" VARCHAR,
-    "phonenumber" VARCHAR,
+    "phoneNumber" VARCHAR,
     "email" VARCHAR,
     "fee" INT
 );
 
 CREATE TABLE "user"(
-    "userid" INT NOT NULL,
-    "username" VARCHAR NOT NULL,
-    "useremail" VARCHAR NOT NULL,
-    "userpassword" VARCHAR NOT NULL,
-    "usercreditcard" INT NOT NULL,
-    "userpick" VARCHAR NOT NULL,
+    "userId" INT NOT NULL,
+    "userName" VARCHAR NOT NULL,
+    "userEmail" VARCHAR NOT NULL,
+    "userPassword" VARCHAR NOT NULL,
+    "userCreditCard" INT NOT NULL,
+    "userPick" VARCHAR NOT NULL,
 
-    CONSTRAINT "PK_user" PRIMARY KEY ("userid"),
-    CONSTRAINT "FK_userpickid" FOREIGN KEY ("userpick") REFERENCES "pros" ("proid") ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT "PK_user" PRIMARY KEY ("userId"),
+    CONSTRAINT "FK_userPickId" FOREIGN KEY ("userPick") REFERENCES "pros" ("proId") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
+CREATE TABLE "userPickId"(
+    "userPick" INT NOT NULL
 
+);
 
+INSERT INTO "userPickId" FROM "userPick"
 
 INSERT INTO "pros" VALUES (1, 'Scoota Sage', 'Engineer', '555-555-5555', 'SCOOTA_SAGE@GMAIL.COM', 300 );
 INSERT INTO "pros" VALUES (2, 'Jason Allen', 'Musician', '555-555-5555', 'jallen@gmail.com', 500);

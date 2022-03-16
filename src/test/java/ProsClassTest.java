@@ -33,6 +33,19 @@ public class ProsClassTest {
         Assertions.assertEquals(1, actual.getProId());
         Assertions.assertEquals("Scoota", actual.getName());
         Assertions.assertEquals("mail@mail.com", actual.getEmail());
-        Assertions.assertEquals();
+        Assertions.assertEquals("Engineer", actual.getProfession());
+        Assertions.assertEquals("555-555-5555", actual.getPhoneNumber());
+        Assertions.assertEquals(200, actual.getFee());
     }
+
+    @Test
+    public void ProClassToStringTest(){
+
+        Pros actual = new Pros(1, "Scoota", "Engineer", "mail@mail.com", "555-555-5555", 200);
+
+        String expected = "Pros{proId=1, name='Scoota', profession='Engineer', email='mail@mail.com', phoneNumber='555-555-5555', fee=200}";
+
+        Assertions.assertEquals(expected, actual.toString());
+    }
+
 }
