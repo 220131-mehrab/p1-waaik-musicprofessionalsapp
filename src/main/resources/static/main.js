@@ -36,13 +36,15 @@ function postPros() {
             throw new Error("Bad Server Response");
         }
        console.log(result.text());
+     fetch('/pros').then(resp => resp.json()).then(pros => {
+             document.querySelector('#pros').innerHTML = listPros(pros);
+               })
 
     }).catch((error) => { console.log(error); });
         //console.log("Im here");
-    fetch('/pros').then(resp => resp.json()).then(pros => {
-            document.querySelector('#pros').innerHTML = listPros(pros);
-        }
-    );
+
+
+
 }
 
 let button = document.querySelector('button');

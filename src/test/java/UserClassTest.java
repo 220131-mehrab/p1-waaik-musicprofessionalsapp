@@ -8,14 +8,14 @@ public class UserClassTest {
     @Test
     public void UserClassConstructorTest(){
 
-        User actual = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 575939489);
+        User actual = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 575939489, 2);
 
         Assertions.assertEquals(1, actual.getUserId());
         Assertions.assertEquals("Waaik123", actual.getUserName());
         Assertions.assertEquals("waaik123@mail.com", actual.getUserEmail());
         Assertions.assertEquals("xyz123", actual.getUserPassword());
         Assertions.assertEquals(575939489, actual.getUserCreditCard());
-
+        Assertions.assertEquals(2, actual.getUserPick());
     }
 
     @Test
@@ -28,21 +28,22 @@ public class UserClassTest {
         actual.setUserEmail("waaik123@mail.com");
         actual.setUserPassword("xyz123");
         actual.setUserCreditCard(57593489);
+        actual.setUserPick(2);
 
         Assertions.assertEquals(1, actual.getUserId());
         Assertions.assertEquals("Waaik123", actual.getUserName());
         Assertions.assertEquals("waaik123@mail.com", actual.getUserEmail());
         Assertions.assertEquals("xyz123", actual.getUserPassword());
         Assertions.assertEquals(57593489, actual.getUserCreditCard());
-
+        Assertions.assertEquals(2, actual.getUserPick());
     }
 
     @Test
     public void ProClassToStringTest(){
 
-        User actual = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 57593489);
+        User actual = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 57593489, 2);
 
-        String expected = "User{userId=1, userName='Waaik123', userEmail='waaik123@mail.com', userPassword='xyz123', userCreditCard=57593489}";
+        String expected = "User{userId=1, userName='Waaik123', userEmail='waaik123@mail.com', userPassword='xyz123', userCreditCard=57593489, userPick=2}";
 
         Assertions.assertEquals(expected, actual.toString());
     }
