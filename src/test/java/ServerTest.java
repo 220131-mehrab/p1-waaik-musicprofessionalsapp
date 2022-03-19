@@ -17,15 +17,9 @@ import java.sql.SQLException;
 public class ServerTest extends HttpServlet {
    // Tomcat server = new Tomcat();
 
-    @BeforeAll
-    public static void TestServer(){
-        Tomcat server = new Tomcat();
-        server.getConnector();
-        server.addContext("", null);
 
 
 
-    }
 
     @Test
     public void ServletGetTest() throws LifecycleException {

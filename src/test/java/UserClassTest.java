@@ -43,9 +43,8 @@ public class UserClassTest {
 
         User actual = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 57593489, 2);
 
-        String expected = "User{userId=1, userName='Waaik123', userEmail='waaik123@mail.com', userPassword='xyz123', userCreditCard=57593489, userPick=2}";
-
-        Assertions.assertEquals(expected, actual.toString());
+        User expected = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 57593489, 2);
+        Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
 }
