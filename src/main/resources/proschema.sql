@@ -7,16 +7,24 @@ CREATE TABLE "pros"(
     "fee" INT
 );
 
-CREATE TABLE "user"(
+CREATE TABLE "customer"(
     "userId" INT NOT NULL,
     "userName" VARCHAR NOT NULL,
     "userEmail" VARCHAR NOT NULL,
     "userPassword" VARCHAR NOT NULL,
-    "userCreditCard" INT NOT NULL,
-    "userPick" VARCHAR NOT NULL,
+    "userCreditCard" INTEGER NOT NULL,
 
-    CONSTRAINT "PK_user" PRIMARY KEY ("userId"),
-    CONSTRAINT "FK_userPickId" FOREIGN KEY ("userPick") REFERENCES "pros" ("proId") ON DELETE NO ACTION ON UPDATE NO ACTION
+
+    CONSTRAINT "PK_user1" PRIMARY KEY ("userId"),
+    CONSTRAINT "FK_userPickId" FOREIGN KEY ("userId") REFERENCES "pros" ("proId") ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE "hired"(
+    "proId" INT NOT NULL,
+    "userId" INT NOT NULL,
+
+    CONSTRAINT "FK_userPick" FOREIGN KEY ("userId") REFERENCES "pros"("proId")
+
 );
 
 

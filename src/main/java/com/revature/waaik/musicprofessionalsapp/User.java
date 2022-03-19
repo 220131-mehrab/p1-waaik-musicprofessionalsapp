@@ -2,15 +2,15 @@ package com.revature.waaik.musicprofessionalsapp;
 
 public class User {
 
-    private int userId;
+    private static int userId = 0;
     private String userName;
     private String userEmail;
     private String userPassword;
-    private int userCreditCard;
+    private long userCreditCard;
     private int userPick;
 
-    public User(int userId, String userName, String userEmail, String userPassword, int userCreditCard, int userPick) {
-        this.userId = userId;
+    public User(int userId, String userName, String userEmail, String userPassword, long userCreditCard, int userPick) {
+        this.userId = userId; userId++;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
@@ -26,8 +26,9 @@ public class User {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public int setUserId(int userId) {
         this.userId = userId;
+        return userId;
     }
 
     public String getUserName() {
@@ -54,11 +55,11 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public int getUserCreditCard() {
+    public long getUserCreditCard() {
         return userCreditCard;
     }
 
-    public void setUserCreditCard(int userCreditCard) {
+    public void setUserCreditCard(long userCreditCard) {
         this.userCreditCard = userCreditCard;
     }
 

@@ -29,7 +29,7 @@ public class userServlet extends HttpServlet {
         List<User> user = new ArrayList<>();
         //ResultSet rSet = null;
         try {
-            ResultSet rSet = connection.prepareStatement("select * from user").executeQuery();
+            ResultSet rSet = connection.prepareStatement("select * from customer").executeQuery();
             while (rSet.next()) {
                 //get columns in table and puts it into your Pros list
                 user.add(new User(rSet.getInt("userId"), rSet.getString("userName"), rSet.getString("userEmail"), rSet.getString("userPassword"), rSet.getInt("userCreditCard"), rSet.getInt("userPick")));
@@ -50,13 +50,12 @@ public class userServlet extends HttpServlet {
         User newUser = mapper.readValue(req.getInputStream(), User.class);
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("insert into user values (?,?,?,?,?,?)");
+            PreparedStatement stmt = connection.prepareStatement("insert into customer values (?,?,?,?,?)");
             stmt.setInt(1, newUser.getUserId());
             stmt.setString(2, newUser.getUserName());
             stmt.setString(3, newUser.getUserEmail());
             stmt.setString(4, newUser.getUserPassword());
-            stmt.setInt(5, newUser.getUserCreditCard());
-            stmt.setInt(6, newUser.getUserPick());
+            stmt.setLong(5, newUser.getUserCreditCard());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Failed to insert:" + e.getMessage());

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel = "stylesheet" href="main.css">
+</head>
+<body>
+<h1>Looking for Business?</h1>
+<p> Please sign up below</p>
+<form action="/pros" method="POST">
+    Id: <input type="number" name="proId" id="proId"/>
+    Name: <input type="text" name="name" id="name"/>
+    Profession: <input type="text" name="profession" id="profession"/>
+    Email: <input type="text" name="email" id="email"/>
+    Phone Number: <input type="text" name="phoneNumber" id="phoneNumber"/>
+    Fee: <input type="number" name="fee" id="fee"/>
+    <button type="button" onclick="postPros()">Add Pros</button>
+</form>
+<div id="pros"></div>
+<script src="service.js"></script>
+</body>
+</html>
