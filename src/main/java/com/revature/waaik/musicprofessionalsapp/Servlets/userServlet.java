@@ -32,7 +32,7 @@ public class userServlet extends HttpServlet {
             ResultSet rSet = connection.prepareStatement("select * from customer").executeQuery();
             while (rSet.next()) {
                 //get columns in table and puts it into your Pros list
-                user.add(new User(rSet.getInt("userId"), rSet.getString("userName"), rSet.getString("userEmail"), rSet.getString("userPassword"), rSet.getInt("userCreditCard"), rSet.getInt("userPick")));
+                user.add(new User(rSet.getInt("userId"), rSet.getString("userName"), rSet.getString("userEmail"), rSet.getString("userPassword"), rSet.getInt("userCreditCard")));
 
             }
         }catch(SQLException e){

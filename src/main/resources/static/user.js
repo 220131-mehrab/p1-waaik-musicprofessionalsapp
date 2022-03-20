@@ -15,6 +15,7 @@ console.log("Logging in...")
 
     }
     console.log(customer);
+    //Fetching for the doPost
     fetch("/login", {
         method: "POST",
         headers: {

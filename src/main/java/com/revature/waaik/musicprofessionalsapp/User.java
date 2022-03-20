@@ -7,15 +7,15 @@ public class User {
     private String userEmail;
     private String userPassword;
     private long userCreditCard;
-    private int userPick;
+   // private int userPick;
 
-    public User(int userId, String userName, String userEmail, String userPassword, long userCreditCard, int userPick) {
+    public User(int userId, String userName, String userEmail, String userPassword, long userCreditCard) {
         this.userId = userId; userId++;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userCreditCard = userCreditCard;
-        this.userPick = userPick;
+       // this.userPick = userPick;
     }
 
     public User(){
@@ -63,9 +63,9 @@ public class User {
         this.userCreditCard = userCreditCard;
     }
 
-    public int getUserPick(){return userPick;}
+    //public int getUserPick(){return userPick;}
 
-    public void setUserPick(int userPick){this.userPick = userPick;}
+    //public void setUserPick(int userPick){this.userPick = userPick;}
 
 
     @Override
@@ -76,7 +76,6 @@ public class User {
                 ", userEmail='" + userEmail + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userCreditCard=" + userCreditCard + '\'' +
-                ", userPick=" + userPick +
                 '}';
     }
 }

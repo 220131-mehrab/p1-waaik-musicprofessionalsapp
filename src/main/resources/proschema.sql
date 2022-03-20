@@ -15,15 +15,13 @@ CREATE TABLE "customer"(
     "userCreditCard" INTEGER NOT NULL,
 
 
-    CONSTRAINT "PK_customer" PRIMARY KEY ("userId"),
-    CONSTRAINT "FK_customerPick" FOREIGN KEY ("userId") REFERENCES "pros" ("proId") ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT "PK_customer" PRIMARY KEY ("userId")
+
 );
 
 CREATE TABLE "hired"(
     "proId" INT NOT NULL,
-    "userId" INT NOT NULL,
-
-    CONSTRAINT "FK_customerPick" FOREIGN KEY ("userId") REFERENCES "pros"("proId")
+    "userId" INT NOT NULL
 
 );
 

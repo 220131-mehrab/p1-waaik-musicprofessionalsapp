@@ -50,7 +50,7 @@ public class hiredServlet extends HttpServlet {
 
         try {
             PreparedStatement stmt = connection.prepareStatement("select * from pros where proID = ?");
-            stmt.setInt(6, newUser.getUserPick());
+            stmt.setInt(1, newUser.getUserId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Failed to insert:" + e.getMessage());
