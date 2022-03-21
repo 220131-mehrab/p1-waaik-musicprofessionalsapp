@@ -7,9 +7,8 @@ Music Professionals App
         -Password (pretend)
         -email - for link to movie
         -payment info (pretend)
-    -Search for movies
-        -name
-        -by popularity
+    -list of pros to hire
+        -ID, name, profession, email, phone number, fee
     -record user input
         -movie selected.
         -if bought it
@@ -17,22 +16,5 @@ Music Professionals App
     -return email
         -link
         -receipt
-
-Plan of attach:
-
-    dowloads
-        visual studio code
-            gradle dependancy
-            java expansion pack -jackson or Jason
-        docker
-
-    server
-
-    database
-        movies list
-        movies prices
-        user name and email and password.
-
-    javascript and HTML (front end)
 
 

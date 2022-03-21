@@ -1,8 +1,8 @@
 package com.revature.waaik.musicprofessionalsapp;
 
 public class User {
-
-    private static int userId = 0;
+    private static int count = 1;
+    private int userId;
     private String userName;
     private String userEmail;
     private String userPassword;
@@ -10,7 +10,7 @@ public class User {
    // private int userPick;
 
     public User(int userId, String userName, String userEmail, String userPassword, long userCreditCard) {
-        this.userId = userId; userId++;
+        this.userId = count++;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;

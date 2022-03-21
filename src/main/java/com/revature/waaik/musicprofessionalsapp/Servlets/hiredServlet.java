@@ -1,8 +1,8 @@
 package com.revature.waaik.musicprofessionalsapp.Servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.waaik.musicprofessionalsapp.Hired;
 import com.revature.waaik.musicprofessionalsapp.Pros;
-import com.revature.waaik.musicprofessionalsapp.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,20 +25,20 @@ public class hiredServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Pros> pros = new ArrayList<>();
+        List<Hired> hired = new ArrayList<>();
         //ResultSet rSet = null;
         try {
-            ResultSet rSet = connection.prepareStatement("select * from pros").executeQuery();
+            ResultSet rSet = connection.prepareStatement("select hId from hired inner join pros on hired.hId=pros.proId;").executeQuery();
             while (rSet.next()) {
                 //get columns in table and puts it into your Pros list
-                pros.add(new Pros(rSet.getInt("proId"), rSet.getString("name"), rSet.getString("profession"), rSet.getString("phoneNumber"), rSet.getString("email"), rSet.getInt("fee")));
+                hired.add(new Hired(rSet.getInt("hId"), rSet.getInt("uId")));
 
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
         ObjectMapper mapper = new ObjectMapper();
-        String results = mapper.writeValueAsString(pros); //write pros value as a string that you get from database
+        String results = mapper.writeValueAsString(hired); //write pros value as a string that you get from database
         resp.setContentType("/application/json");
         resp.getWriter().println(results);
     }
@@ -46,11 +46,12 @@ public class hiredServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         ObjectMapper mapper = new ObjectMapper();
-        User newUser = mapper.readValue(req.getInputStream(), User.class);
+        Hired newHired = mapper.readValue(req.getInputStream(), Hired.class);
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("select * from pros where proID = ?");
-            stmt.setInt(1, newUser.getUserId());
+            PreparedStatement stmt = connection.prepareStatement("insert into hired values (?,?)");
+            stmt.setInt(1, newHired.gethId());
+            stmt.setInt(2, newHired.getuId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Failed to insert:" + e.getMessage());

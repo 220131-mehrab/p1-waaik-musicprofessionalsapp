@@ -11,7 +11,7 @@ function listPros(json) {
 };
 
 let listPro = function(pro) {
-    return '<p>' + pro.proId + ": " + pro.name + ": " + pro.profession + ": " + pro.email + ": " + pro.phoneNumber + ": " + pro.fee + '<button type=button onclick="postHired('+ pro.proId + ',' + customer.userId +')">Hire</button></p>';
+    return '<p>' + pro.proId + ": " + pro.name + ": " + pro.profession + ": " + pro.email + ": " + pro.phoneNumber + ": " + pro.fee + '<button type=button onclick="postHired('+ pro.hId + ')">Hire</button></p>';
 };
 
 
@@ -66,12 +66,13 @@ function postHired(hId, uId) {
             throw new Error("Bad Server Response");
         }
        console.log(result.text());
-     fetch('/pros').then(resp => resp.json()).then(pros => {
+     fetch('/hired').then(resp => resp.json()).then(pros => {
              document.querySelector('#pros').innerHTML = listPros(pros);
                })
 
     }).catch((error) => { console.log(error); });
-        //console.log("Im here");
+    //console.log("Im here");
+    window.location.pathname='/hired.html';
 }
 
 

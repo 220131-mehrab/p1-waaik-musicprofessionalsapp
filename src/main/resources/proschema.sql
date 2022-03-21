@@ -20,8 +20,11 @@ CREATE TABLE "customer"(
 );
 
 CREATE TABLE "hired"(
-    "proId" INT NOT NULL,
-    "userId" INT NOT NULL
+    "hId" INT NOT NULL,
+    "uId" INT NOT NULL,
+
+    CONSTRAINT "FK_hired" FOREIGN KEY ("hId") REFERENCES "pros" ("proId"),
+    CONSTRAINT "FK_uId" FOREIGN KEY ("uId") REFERENCES "customer" ("userId")
 
 );
 
@@ -29,6 +32,6 @@ CREATE TABLE "hired"(
 
 
 
-INSERT INTO "pros" VALUES (1, 'Scoota Sage', 'Engineer', '555-555-5555', 'SCOOTA_SAGE@GMAIL.COM', 300 );
+INSERT INTO "pros" VALUES (1, 'Scoota Sage', 'Engineer', '555-555-5555', 'SCOOTA_SAGE@GMAIL.COM', 300);
 INSERT INTO "pros" VALUES (2, 'Jason Allen', 'Musician', '555-555-5555', 'jallen@gmail.com', 500);
 

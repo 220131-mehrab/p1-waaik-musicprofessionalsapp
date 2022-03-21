@@ -1,7 +1,8 @@
-fetch('/user').then(resp => resp.json()).then(pros => {
-        document.querySelector('#pros').innerHTML = listPros(pros);
+fetch('/hired').then(resp => resp.json()).then(pros => {
+        document.querySelector('#hired').innerHTML = listPros(pros);
     }
 );
+
 
 function listPros(json) {
     return `${json.map(listPro).join('\n')}`;
