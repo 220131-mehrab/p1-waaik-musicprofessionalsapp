@@ -14,11 +14,11 @@ application {
     mainClassName = 'com.revature.waaik.musicprofessionalsapp.App'
 }
 
-//jar {
-    //manifest {
-   //     attributes 'Main-Class' : mainClassName
-   // }
-//}
+jar {
+    manifest {
+       attributes 'Main-Class' : mainClassName
+    }
+}
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'

@@ -8,7 +8,7 @@ public class UserClassTest {
     @Test
     public void UserClassConstructorTest(){
 
-        User actual = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 575939489);
+        User actual = new User(0, "Waaik123", "waaik123@mail.com", "xyz123", 575939489);
 
         Assertions.assertEquals(1, actual.getUserId());
         Assertions.assertEquals("Waaik123", actual.getUserName());
@@ -40,7 +40,7 @@ public class UserClassTest {
 
         User actual = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 57593489);
 
-        User expected = new User(1, "Waaik123", "waaik123@mail.com", "xyz123", 57593489);
+        User expected = new User(2, "Waaik123", "waaik123@mail.com", "xyz123", 57593489);
         Assertions.assertEquals(expected.toString(), actual.toString());
     }
 

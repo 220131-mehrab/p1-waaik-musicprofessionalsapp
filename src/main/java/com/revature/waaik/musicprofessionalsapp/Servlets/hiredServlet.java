@@ -2,7 +2,6 @@ package com.revature.waaik.musicprofessionalsapp.Servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.waaik.musicprofessionalsapp.Hired;
-import com.revature.waaik.musicprofessionalsapp.Pros;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

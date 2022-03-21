@@ -1,7 +1,9 @@
 Music Professionals App
+#Features
+This application will allow you sign up as a music professional talent or hire a music professional for your next event.
+
 #User Stories
 
-   - Users can input item choice and receive info back
    - Put in user account info
        - name
         -Password (pretend)

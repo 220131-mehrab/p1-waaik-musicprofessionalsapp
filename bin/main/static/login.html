@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel = "stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Welcome To My Business</h1>
+    <p> Please sign-up</p>
+    <form action="/login" method="POST">
+        userName: <input type="text" name="userName" id="userName"/>
+        userEmail: <input type="text" name="userEmail" id="userEmail"/>
+        userPassword: <input type="password" name="userPassword" id="userPassword"/>
+        userCreditCard: <input type="number" name="userCreditCard" id="userCreditCard"/>
+        <button type="button" onclick="login()">Sign-Up</button>
+    </form>
+    <div id="login"></div>
+<script src="login.js"></script>
+</body>
+</html>
